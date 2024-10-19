@@ -2,7 +2,7 @@ import math
 import os
 from concurrent.futures import ProcessPoolExecutor
 import time
-
+# read more https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 def sieve_of_eratosthenes(start, end):
     if start < 2:
         start = 2
@@ -47,14 +47,14 @@ def find_primes(limit):
     return sorted(all_primes)
 
 if __name__ == "__main__":
-    limit = 500000000
+    limit = 500000000 # set as many as you want
 
     start_time = time.time()
 
     primes = find_primes(limit)
 
     end_time = time.time()
-
+    # this shit can take up gigabytes of space, be careful
     with open("primes.txt", "w") as file:
         for prime in primes:
             file.write(f"{prime}\n")
